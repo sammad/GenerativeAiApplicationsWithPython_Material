@@ -8,7 +8,7 @@ pipe = AmusedPipeline.from_pretrained(
 pipe.vqvae.to(torch.float32)  # vqvae is producing nans in fp16
 #%%
 
-prompt = "dog"
+prompt = "cat"
 image = pipe(prompt, generator=torch.Generator().manual_seed(8)).images[0]
 image.save('text2image_256.png')
 # %%
