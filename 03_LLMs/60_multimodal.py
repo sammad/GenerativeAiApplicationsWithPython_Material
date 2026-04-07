@@ -4,7 +4,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv(usecwd=True))
 import base64
 # %%
-MODEL = "llama-3.2-90b-vision-preview"
+MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
 IMAGE_PATH = "sample_image.png"
 USER_PROMPT = "What is shown in this image? Answer in one sentence."
 # %% 
@@ -37,5 +37,6 @@ chat_completion = client.chat.completions.create(
 )
 
 #%% analyze the output
+print(chat_completion.choices[0].logprobs.tokens)
 print(chat_completion.choices[0].message.content)
 # %%
